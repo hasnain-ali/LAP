@@ -1,0 +1,142 @@
+﻿@model LAP.UI.Web.Models.LoanRequest
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Search Loans</h2>
+
+@using (Html.BeginForm("SearchResult", "Loan", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="form-group col-md-6 col-sm-6" style="position: static;">
+            @Html.LabelFor(m => m.Purpose, "What will you use this money for?")
+            @Html.DropDownListFor(m => m.Purpose, GetPurposeList(), new { @class = "form-control" })
+            <p class="help-block">Some loans are only designed for specific borrowing requirements. Telling us what you want the money for ensures we only show you suitable loan results.</p>
+        </div>
+        <div class="form-group col-md-6 col-sm-6" style="position: static;">
+            @Html.LabelFor(m => m.Amount, "How much would you like to borrow?")
+            @Html.DropDownListFor(m => m.Amount, GetAmountList(), new { @class = "form-control" })
+            <p class="help-block">Each loan has a minimum and maximum term over which you pay back the loan. The longer the term, the more interest you will pay.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-6 col-sm-6" style="position: static;">
+            @Html.LabelFor(m => m.TermYear, "How long do you want to borrow it for?")
+            @Html.DropDownListFor(m => m.TermYear, GetTermList(), new { @class = "form-control" })
+            <p class="help-block">Each loan has a minimum and maximum term over which you pay back the loan. The longer the term, the more interest you will pay.</p>
+        </div>
+        <div class="form-group col-md-6 col-sm-6" style="position: static;">
+            @Html.LabelFor(m => m.HomeOwner, "Are you a home owner?")
+            <div>
+                <label class="radio-inline"><input type="radio" name="HomeOwner" value="0">No</label>
+                <label class="radio-inline"><input type="radio" name="HomeOwner" value="1">Yes</label>
+            </div>
+            <p class="help-block">Some loans are only available to homeowners.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group  col-md-6 col-sm-6" style="position: static;">
+            @Html.LabelFor(m => m.Employed, "Are you employed?")
+            @Html.DropDownListFor(m => m.Employed, GetEmployedList(), new { @class = "form-control" })
+            <p class="help-block">Providing employment status ensures we can show your chance of being approved for each loan, based on your personal circumstances.</p>
+        </div>
+        <div class="form-group  col-md-6 col-sm-6" style="position: static;">
+            @Html.LabelFor(m => m.AnnualIncome, "What's your annual income?")
+            @Html.TextBoxFor(m => m.AnnualIncome, new { @class = "form-control", @placeholder = "Enter amount", @type = "number", @required = "required" })
+            <p class="help-block">Providing annual income before tax ensures we can show your chance of being approved for each loan, based on your personal circumstances.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group" style="position: static;">
+                @Html.LabelFor(m => m.Firstname, "What's your name?")
+                <div>
+                    @Html.TextBoxFor(m => m.Firstname, new { @class = "form-control col-md-6 col-lg-6", @placeholder = "Enter first name", @type = "text", @required = "required" })
+                    @Html.TextBoxFor(m => m.Lastname, new { @class = "form-control col-md-offset-4 col-lg-offset-3", @placeholder = "Enter last name", @type = "text", @required = "required" })
+                </div>
+                <div class="col-md-12 row">
+                    <p class="help-block">Providing your full name will help find your credit file, so please avoid using nicknames and check the spelling carefully.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12  col-sm-12">
+            <div class="form-group" style="position: static;">
+                @Html.LabelFor(m => m.DateOfBirth, "Date of birth")
+                @Html.TextBoxFor(m => m.DateOfBirth, new { @class = "form-control", @placeholder = "Enter date of birth", @type = "date", @required = "required" })
+                <p class="help-block">Providing your correct date of birth will help find your credit file.</p>
+            </div>
+        </div>
+        <div class="col-md-12 col-sm-12">
+            <div class="form-group" style="position: static;">
+                @Html.LabelFor(m => m.AddressLine1, "Your address")
+                <p>@Html.TextBoxFor(m => m.AddressLine1, new { @class = "form-control", @placeholder = "Enter address line 1", @type = "text", @required = "required" })</p>
+                <p>@Html.TextBoxFor(m => m.AddressLine2, new { @class = "form-control", @placeholder = "Enter address line 2 (optional)", @type = "text" })</p>
+                <p>@Html.TextBoxFor(m => m.TownCity, new { @class = "form-control", @placeholder = "Enter town/city", @type = "text", @required = "required" })</p>
+                <p>@Html.TextBoxFor(m => m.Postcode, new { @class = "form-control", @placeholder = "Enter postcode", @type = "text", @required = "required" })</p>
+                <p class="help-block">Providing your address as it appears on your bank account statements, utility bills or credit card statements will help find your credit file.</p>
+            </div>
+        </div>
+        <div class="col-md-12  col-sm-12">
+            <div class="form-group" style="position: static;">
+                <input value="Search" type="submit" class="btn btn-primary" role="button" id="btn-searchloans"/>
+            </div>
+        </div>
+    </div>
+}
+
+@functions{
+    public List<SelectListItem> GetPurposeList()
+    {
+        var list = new List<SelectListItem>();
+        list.Add(new SelectListItem { Text = "Home Improvement", Value = "1" });
+        list.Add(new SelectListItem { Text = "Debts", Value = "2" });
+        list.Add(new SelectListItem { Text = "Car", Value = "3" });
+        list.Add(new SelectListItem { Text = "Wedding", Value = "4" });
+        list.Add(new SelectListItem { Text = "Holiday", Value = "5" });
+        list.Add(new SelectListItem { Text = "Something else", Value = "0" });
+        return list;
+    }
+
+    public List<SelectListItem> GetTermList()
+    {
+        var list = new List<SelectListItem>();
+        list.Add(new SelectListItem { Text = "1 Year", Value = "1" });
+        list.Add(new SelectListItem { Text = "2 Years", Value = "2" });
+        list.Add(new SelectListItem { Text = "3 Years", Value = "3" });
+        list.Add(new SelectListItem { Text = "4 Years", Value = "4" });
+        list.Add(new SelectListItem { Text = "5 Years", Value = "5" });
+        return list;
+    }
+
+
+    public List<SelectListItem> GetAmountList()
+    {
+        var list = new List<SelectListItem>();
+        list.Add(new SelectListItem { Text = "£1000", Value = "1000" });
+        list.Add(new SelectListItem { Text = "£3000", Value = "3000" });
+        list.Add(new SelectListItem { Text = "£5000", Value = "5000" });
+        list.Add(new SelectListItem { Text = "£7000", Value = "7000" });
+        list.Add(new SelectListItem { Text = "£10000", Value = "10000" });
+        return list;
+    }
+
+    public List<SelectListItem> GetHomeOwnerList()
+    {
+        var list = new List<SelectListItem>();
+        list.Add(new SelectListItem { Text = "No", Value = "0" });
+        list.Add(new SelectListItem { Text = "Yes", Value = "1" });
+        return list;
+    }
+
+    public List<SelectListItem> GetEmployedList()
+    {
+        var list = new List<SelectListItem>();
+        list.Add(new SelectListItem { Text = "Full time", Value = "1" });
+        list.Add(new SelectListItem { Text = "Part time", Value = "2" });
+        list.Add(new SelectListItem { Text = "Self employed", Value = "3" });
+        list.Add(new SelectListItem { Text = "Not employed", Value = "0" });
+        return list;
+    }
+}

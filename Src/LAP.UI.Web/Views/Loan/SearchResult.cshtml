@@ -1,0 +1,47 @@
+﻿@model LAP.UI.Web.Models.LoanSearchResult
+@{
+    ViewBag.Title = "SearchResult";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Loan Search Result</h2>
+
+<h4>Amount to borrow:&nbsp;@string.Format("{0:C0}", Model.Request.Amount)</h4>
+<h4>Repayment term:&nbsp;@Model.Request.TermYear Year(s) <small>@string.Format("({0} months)", Model.Request.TermYear * 12)</small></h4>
+<div>
+    @Html.ActionLink("Edit","Index", Model.Request, new { @class = "btn btn-primary" })
+</div>
+
+
+<h3>Loans</h3>
+<table class="table table-hover table-striped">
+    <tbody>
+        @foreach (var item in Model.Loans)
+        {
+            <tr>
+                <td>
+                    <div><img src="~/Content/Images/Logos/@string.Format("{0}.png", item.ProviderLogo)" alt="@item.ProviderName" height="50" /></div>
+                    <div><strong>@item.ProviderName</strong></div>
+                    <div class="small text-info">@item.ProviderName Personal Loan</div>
+                </td>
+                <td>
+                    <div><strong>@string.Format("{0}%", item.Apr)</strong></div>
+                    <div class="small">APR</div>
+                    <div class="small text-info">Representative</div>
+                </td>
+                <td>
+                    <div><strong>@string.Format("{0:C2}", item.MonthlyAmount)</strong></div>
+                    <div class="small">Monthly repayments</div>
+                    <div class="small text-info">over @(Model.Request.TermYear * 12) months</div>
+                </td>
+                <td>
+                    <div><strong>@string.Format("{0:C2}", item.TotalPayableAmount)</strong></div>
+                    <div class="small">Total amount payable</div>
+                </td>
+                <td>
+                    <a href="#" class="btn btn-primary" role="button">Apply &raquo;</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

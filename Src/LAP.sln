@@ -1,0 +1,89 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.4
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LAP.UI.Web", "LAP.UI.Web\LAP.UI.Web.csproj", "{CEE69FF0-621D-4CB6-947D-B1174C98E979}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LAP.Services", "LAP.Services\LAP.Services.csproj", "{EE37DAA4-B632-40CA-AF95-BE55000A3F9A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01. Presentation", "01. Presentation", "{5D8FC0A3-B36C-4D42-A272-9BAC35BF39AE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02. Service", "02. Service", "{28AF0025-D549-4B9A-8060-32F296C96335}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LAP.Core", "LAP.Core\LAP.Core.csproj", "{F794E191-3DF9-4512-9B56-00C2E4CF3835}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00. Common", "00. Common", "{29275D57-0777-4AC6-8269-7EEE4975B52B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LAP.Services.Test", "LAP.Services.Test\LAP.Services.Test.csproj", "{3BC9D3DD-A93C-476B-84D5-04C52FB569CF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "99.Tests", "99.Tests", "{4F7E8226-C4B2-497C-92DA-145B0F6E1A5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LAP.Data", "LAP.Data\LAP.Data.csproj", "{B146F28B-428A-43B3-A3BF-E34D4BB0BFC1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04. Persistence", "04. Persistence", "{35862759-1DFD-47BD-9867-DB494CC00BC7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CEE69FF0-621D-4CB6-947D-B1174C98E979}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEE69FF0-621D-4CB6-947D-B1174C98E979}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEE69FF0-621D-4CB6-947D-B1174C98E979}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEE69FF0-621D-4CB6-947D-B1174C98E979}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE37DAA4-B632-40CA-AF95-BE55000A3F9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE37DAA4-B632-40CA-AF95-BE55000A3F9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE37DAA4-B632-40CA-AF95-BE55000A3F9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE37DAA4-B632-40CA-AF95-BE55000A3F9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F794E191-3DF9-4512-9B56-00C2E4CF3835}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F794E191-3DF9-4512-9B56-00C2E4CF3835}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F794E191-3DF9-4512-9B56-00C2E4CF3835}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F794E191-3DF9-4512-9B56-00C2E4CF3835}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BC9D3DD-A93C-476B-84D5-04C52FB569CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BC9D3DD-A93C-476B-84D5-04C52FB569CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BC9D3DD-A93C-476B-84D5-04C52FB569CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BC9D3DD-A93C-476B-84D5-04C52FB569CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B146F28B-428A-43B3-A3BF-E34D4BB0BFC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B146F28B-428A-43B3-A3BF-E34D4BB0BFC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B146F28B-428A-43B3-A3BF-E34D4BB0BFC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B146F28B-428A-43B3-A3BF-E34D4BB0BFC1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CEE69FF0-621D-4CB6-947D-B1174C98E979} = {5D8FC0A3-B36C-4D42-A272-9BAC35BF39AE}
+		{EE37DAA4-B632-40CA-AF95-BE55000A3F9A} = {28AF0025-D549-4B9A-8060-32F296C96335}
+		{F794E191-3DF9-4512-9B56-00C2E4CF3835} = {29275D57-0777-4AC6-8269-7EEE4975B52B}
+		{3BC9D3DD-A93C-476B-84D5-04C52FB569CF} = {4F7E8226-C4B2-497C-92DA-145B0F6E1A5A}
+		{B146F28B-428A-43B3-A3BF-E34D4BB0BFC1} = {35862759-1DFD-47BD-9867-DB494CC00BC7}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://hasnain.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = LAP.UI.Web\\LAP.UI.Web.csproj
+		SccProjectTopLevelParentUniqueName1 = LAP.sln
+		SccProjectName1 = LAP.UI.Web
+		SccLocalPath1 = LAP.UI.Web
+		SccProjectUniqueName2 = LAP.Services\\LAP.Services.csproj
+		SccProjectTopLevelParentUniqueName2 = LAP.sln
+		SccProjectName2 = LAP.Services
+		SccLocalPath2 = LAP.Services
+		SccProjectUniqueName3 = LAP.Core\\LAP.Core.csproj
+		SccProjectTopLevelParentUniqueName3 = LAP.sln
+		SccProjectName3 = LAP.Core
+		SccLocalPath3 = LAP.Core
+		SccProjectUniqueName4 = LAP.Services.Test\\LAP.Services.Test.csproj
+		SccProjectTopLevelParentUniqueName4 = LAP.sln
+		SccProjectName4 = LAP.Services.Test
+		SccLocalPath4 = LAP.Services.Test
+		SccProjectUniqueName5 = LAP.Data\\LAP.Data.csproj
+		SccProjectTopLevelParentUniqueName5 = LAP.sln
+		SccProjectName5 = LAP.Data
+		SccLocalPath5 = LAP.Data
+	EndGlobalSection
+EndGlobal

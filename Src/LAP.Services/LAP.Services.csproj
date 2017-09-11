@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EE37DAA4-B632-40CA-AF95-BE55000A3F9A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LAP.Services</RootNamespace>
+    <AssemblyName>LAP.Services</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CreditScore\CreditScoreProviderBase.cs" />
+    <Compile Include="CreditScore\CreditScoreRequest.cs" />
+    <Compile Include="CreditScore\CreditScoreResult.cs" />
+    <Compile Include="CreditScore\CreditScoreService.cs" />
+    <Compile Include="CreditScore\EquifaxCreditScoreProvider.cs" />
+    <Compile Include="CreditScore\ExperianCreditScoreProvider.cs" />
+    <Compile Include="CreditScore\ICreditScoreProvider.cs" />
+    <Compile Include="CreditScore\ICreditScoreService.cs" />
+    <Compile Include="Lending\ILendingService.cs" />
+    <Compile Include="Lending\ILoanPaymentCalculator.cs" />
+    <Compile Include="Lending\ILoanSelector.cs" />
+    <Compile Include="Lending\LendingService.cs" />
+    <Compile Include="Lending\LoanPaymentCalculator.cs" />
+    <Compile Include="Lending\LoanSelector.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LAP.Core\LAP.Core.csproj">
+      <Project>{f794e191-3df9-4512-9b56-00c2e4cf3835}</Project>
+      <Name>LAP.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LAP.Data\LAP.Data.csproj">
+      <Project>{b146f28b-428a-43b3-a3bf-e34d4bb0bfc1}</Project>
+      <Name>LAP.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
